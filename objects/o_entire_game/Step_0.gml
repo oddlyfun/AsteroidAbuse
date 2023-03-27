@@ -3,7 +3,7 @@ if (live_call()) return live_result;
 
 ship.move();
 ship.rotate();
-
+ship.hit_a_asteroid(asteroid_array);
 
 
 if ( keyboard_check_pressed(vk_space) )
@@ -57,7 +57,7 @@ for ( var i = array_length(bullet_array) - 1; i >= 0; i-- )
 
 
 
-if ( keyboard_check_released(vk_tab) )
+if ( ship.is_dead == true )
 {
 	instance_create_layer(room_width / 2, room_height/2, "Instances", o_entire_game);
 	instance_destroy();
