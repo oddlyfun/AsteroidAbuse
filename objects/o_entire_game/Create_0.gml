@@ -4,6 +4,7 @@ randomize();
 ast_timer = 0;
 waver_time = 2;
 
+the_score 		= 0;
 asteroid_array	= [];
 bullet_array	= [];
 
@@ -61,6 +62,25 @@ ship = {
 	draw_me : function() {
 		draw_sprite_ext(sprite, 0, x, y, 1, 1, direction, c_white, 1);
 	},
+
+	hit_a_asteroid : function(_ast_list) {
+		for ( var i = array_length(_ast_list) - 1; i >= 0; i--)
+		{
+			var _ast = _ast_list[@ i];
+			var _x = _ast.posX - sprite_get_xoffset(_ast.sprite); 
+			var _y = _ast.posY - sprite_get_yoffset(_ast.sprite);
+			
+			var _bbox_left		= _x + sprite_get_bbox_left(sprite);
+			var _bbox_right		= _x + sprite_get_bbox_right(sprite);
+			var _bbox_top		= _y + sprite_get_bbox_top(sprite);
+			var _bbox_bottom	= _y + sprite_get_bbox_bottom(sprite);
+			
+			if ( x >= _bbox_left and x <= _bbox_right and y >= _bbox_top and y <= _bbox_bottom )
+			{
+				is_dead = true;			
+			}
+		}
+	}
 	
 	fire_bullet : function(the_ship) {
 		var _bullet = {
@@ -86,7 +106,6 @@ ship = {
 			array_push(bullet_array, _bullet);
 		}
 	},
-	
 	
 };
 	
@@ -161,6 +180,7 @@ function asteroid () constructor
 		{
 			var _spr = noone;
 			var _repeat_amount = 0;
+			the_score = the_score + 10;
 			
 			if ( _level == 1 )
 			{
