@@ -16,7 +16,7 @@ if ( keyboard_check_pressed(vk_space) )
 
 if ( ast_timer >= waver_time )
 {
-	array_push(asteroid_array, new asteroid() );
+	array_push(asteroid_array, new asteroid(ship) );
 	ast_timer = 0;
 }
 ast_timer = ast_timer + (delta_time / 1000000);
@@ -55,10 +55,25 @@ for ( var i = array_length(bullet_array) - 1; i >= 0; i-- )
 	
 }
 
-
+/*
+		Check ship death
+*/
 
 if ( ship.is_dead == true )
 {
-	instance_create_layer(room_width / 2, room_height/2, "Instances", o_entire_game);
-	instance_destroy();
+	if ( the_score > highscore )
+	{
+		highscore = the_score;
+	}
+	//instance_create_layer(room_width / 2, room_height/2, "Instances", o_entire_game);
+	//instance_destroy();
+	bullet_array = [];
+	ast_timer = 0;
+	waver_time = 2;
+	the_score 		= 0;
+	lives			= 3;
+	asteroid_array	= [];
+	bullet_array	= [];
+	ship.reset_me();
+	
 }
