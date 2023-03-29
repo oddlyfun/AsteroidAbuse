@@ -2,10 +2,12 @@ randomize();
 
 audio_play_sound(music_space_battle,1,true);
 
-game_timer 		= 0;
+
 ast_timer 		= 0;
-waver_time 		= 4;
-repeat_times 	= 1;
+waver_timer 	= 5; // seconds
+
+repeat_timer 	= 0;
+repeat_amount 	= 1;
 
 the_score 		= 0;
 highscore		= 0;

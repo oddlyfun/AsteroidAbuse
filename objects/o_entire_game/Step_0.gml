@@ -2,36 +2,35 @@ ship.move();
 ship.rotate();
 ship.hit_a_asteroid(asteroid_array);
 
-
 if ( keyboard_check_pressed(vk_space) )
 {
 	ship.fire_bullet(ship);
 	audio_play_sound(sfx_weapon,1,false);
 }
 
-
 /*
 	Wave timers and scaling difficulty
 */
 
-if ( ast_timer >= waver_time )
+if ( ast_timer >= waver_timer )
 {
-	repeat(repeat_times)
+	repeat(repeat_amount)
 	{
 		array_push(asteroid_array, new asteroid(ship) );
 		ast_timer = 0;
 	}
 }
+
 ast_timer = ast_timer + (delta_time / 1000000);
-game_timer = game_timer + (delta_time / 1000000);
+repeat_timer = repeat_timer + (delta_time / 1000000);
 
-if ( game_timer >= 60 )
+// every 15 seconds change how ofter asteroids are spawned and eventually how many per wave
+if ( repeat_timer >= 10 )
 {
-	waver_time = clamp(waver_time - 0.5, 1, 4);
-	repeat_times = clamp(repeat_times + 1, 1, 25);
-	game_timer = 0;
+	waver_timer = clamp(waver_timer - 0.5, 1, 4);
+	repeat_amount = clamp(repeat_amount + 1, 1, 10);
+	repeat_timer = 0;
 }
-
 
 /*
 		Asteroid Array
@@ -97,11 +96,11 @@ if ( ship.is_dead == true )
 	{
 		highscore = the_score;
 	}
-	//instance_create_layer(room_width / 2, room_height/2, "Instances", o_entire_game);
-	//instance_destroy();
-	bullet_array = [];
-	ast_timer = 0;
-	waver_time = 2;
+	bullet_array	= [];
+	ast_timer 		= 0;
+	waver_timer		= 5;
+	repeat_timer	= 0;
+	repeat_amount	= 1; 
 	the_score 		= 0;
 	lives			= 3;
 	asteroid_array	= [];
