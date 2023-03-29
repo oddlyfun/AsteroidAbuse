@@ -2,12 +2,13 @@ if (live_call()) return live_result;
 
 randomize();
 
-ast_timer = 0;
-waver_time = 2;
+game_timer 		= 0;
+ast_timer 		= 0;
+waver_time 		= 4;
+repeat_times 	= 1;
 
 the_score 		= 0;
 highscore		= 0;
-lives			= 3;
 asteroid_array	= [];
 bullet_array	= [];
 
