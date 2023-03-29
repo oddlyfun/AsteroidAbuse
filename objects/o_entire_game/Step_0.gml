@@ -1,6 +1,3 @@
-if (live_call()) return live_result;
-
-
 ship.move();
 ship.rotate();
 ship.hit_a_asteroid(asteroid_array);
@@ -9,6 +6,7 @@ ship.hit_a_asteroid(asteroid_array);
 if ( keyboard_check_pressed(vk_space) )
 {
 	ship.fire_bullet(ship);
+	audio_play_sound(sfx_weapon,1,false);
 }
 
 

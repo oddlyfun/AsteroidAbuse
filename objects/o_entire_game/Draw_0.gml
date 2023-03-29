@@ -1,5 +1,3 @@
-if (live_call()) return live_result;
-
 draw_sprite_part(spr_stars01, 0, 0, 0, room_width, room_height, 0, 0);
 draw_sprite_part(spr_stars02, 0, 0, 0, room_width, room_height, 0, 0);
 

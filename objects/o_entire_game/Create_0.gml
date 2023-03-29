@@ -1,6 +1,6 @@
-if (live_call()) return live_result;
-
 randomize();
+
+audio_play_sound(music_space_battle,1,true);
 
 game_timer 		= 0;
 ast_timer 		= 0;
@@ -203,7 +203,7 @@ function asteroid (player_ship, _posX = 0, _posY = 0) constructor
 				{
 					_blt.is_dead = true;
 					is_blown = true;
-				
+					audio_play_sound(sfx_explode,1,false);
 					blown_up(posX, posY, level);				
 				}
 			}

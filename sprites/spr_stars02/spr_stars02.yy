@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "AsteroidAbuse",
-    "path": "AsteroidAbuse.yyp",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
 }
