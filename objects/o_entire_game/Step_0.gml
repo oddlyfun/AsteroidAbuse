@@ -12,15 +12,27 @@ if ( keyboard_check_pressed(vk_space) )
 }
 
 
-
+/*
+	Wave timers and scaling difficulty
+*/
 
 if ( ast_timer >= waver_time )
 {
-	array_push(asteroid_array, new asteroid(ship) );
-	ast_timer = 0;
+	repeat(repeat_times)
+	{
+		array_push(asteroid_array, new asteroid(ship) );
+		ast_timer = 0;
+	}
 }
 ast_timer = ast_timer + (delta_time / 1000000);
+game_timer = game_timer + (delta_time / 1000000);
 
+if ( game_timer >= 60 )
+{
+	waver_time = clamp(waver_time - 0.5, 1, 4);
+	repeat_times = clamp(repeat_times + 1, 1, 25);
+	game_timer = 0;
+}
 
 
 /*
@@ -56,8 +68,30 @@ for ( var i = array_length(bullet_array) - 1; i >= 0; i-- )
 }
 
 /*
-		Check ship death
+		Ship Checks
 */
+
+if ( ship.x > room_width )
+{
+	ship.x = 0;
+}
+
+if ( ship.x < 0 )
+{
+	ship.x = room_width;
+}
+
+if ( ship.y > room_height )
+{
+	ship.y = 0;
+}
+
+if ( ship.y < 0 )
+{
+	ship.y = room_height;
+}
+
+
 
 if ( ship.is_dead == true )
 {
@@ -75,5 +109,4 @@ if ( ship.is_dead == true )
 	asteroid_array	= [];
 	bullet_array	= [];
 	ship.reset_me();
-	
 }
