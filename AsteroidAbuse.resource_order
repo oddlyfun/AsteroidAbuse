@@ -1,0 +1,14 @@
+{
+  "FolderOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"sfx_weapon","order":3,"path":"sounds/sfx_weapon/sfx_weapon.yy",},
+    {"name":"spr_weapon","order":1,"path":"sprites/spr_weapon/spr_weapon.yy",},
+    {"name":"sfx_explode","order":2,"path":"sounds/sfx_explode/sfx_explode.yy",},
+    {"name":"spr_stars02","order":6,"path":"sprites/spr_stars02/spr_stars02.yy",},
+    {"name":"spr_SMALL","order":4,"path":"sprites/spr_SMALL/spr_SMALL.yy",},
+    {"name":"spr_stars01","order":5,"path":"sprites/spr_stars01/spr_stars01.yy",},
+    {"name":"music_space_battle","order":1,"path":"sounds/music_space_battle/music_space_battle.yy",},
+    {"name":"spr_LARGE","order":2,"path":"sprites/spr_LARGE/spr_LARGE.yy",},
+    {"name":"spr_MEDIUM","order":3,"path":"sprites/spr_MEDIUM/spr_MEDIUM.yy",},
+  ],
+}
